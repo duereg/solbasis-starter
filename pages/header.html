@@ -1,26 +1,19 @@
-export default function Header({ title }) {
-  //return <h1 className="title">{title}</h1>
-  return (
-  <header>
+<header>
     <div id="overlay">
         <ul className="text-center list-none text-white text-3xl">
+            {{ range .Site.Menus.main }}
             <li className="p-2">
-                <a href="/contact">
-                    <span>Contact</span>
+                <a href="{{ .URL }}">
+                    <span>{{ .Name }}</span>
                 </a>
             </li>
-            <li className="p-2">
-                <a href="/about">
-                    <span>About</span>
-                </a>
-            </li>
+            {{ end }}
         </ul>
     </div>
     <nav className="flex items-center justify-between flex-wrap bg-opacity-100 p-8">
         <div className="flex items-center flex-shrink-0 text-xl text-grey-900 mr-6">
-            <a href="https://www.solcapture.com">
-              <img alt="SolCapture" className="h-14 mr-3" src="/img/logo/0x0.png" />
-            </a>
+            <a href="{{ .Site.BaseURL }}"><img alt="{{ .Site.Params.logo.alt }}" className="h-14 mr-3"
+                    src="{{ .Site.Params.logo.main | relURL }}"></a>
         </div>
         <div className="block lg:hidden">
             <div id="hamburgerbtn" className="flex cursor-pointer items-center w-14 h-10 py-2 rounded mopen">
@@ -33,14 +26,12 @@ export default function Header({ title }) {
             <div className="text-lg lg:flex-grow">
             </div>
             <div className="text-lg">
-                <a href="/contact" className="duration-200 block mt-4 lg:inline-block lg:mt-0 text-black hover:opacity-60 mr-8">
-                    Contact
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL }}" className="duration-200 block mt-4 lg:inline-block lg:mt-0 text-black hover:opacity-60 mr-8">
+                    {{ .Name }}
                 </a>
-                <a href="/about" className="duration-200 block mt-4 lg:inline-block lg:mt-0 text-black hover:opacity-60 mr-8">
-                    About
-                </a>
+                {{ end }}
             </div>
         </div>
     </nav>
-  </header>);
-}
+</header>

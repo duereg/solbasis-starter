@@ -1,16 +1,5 @@
-import styles from './Footer.module.css'
-
-export default function Footer() {
-  // return (
-  //   <>
-  //     <footer className={styles.footer}>
-  //       Made with <img src="/netliheart.svg" alt="Netlify Logo" className={styles.logo} /> for you
-  //     </footer>
-  //   </>
-  // )
-  return (
-    <footer className="bg-tlgray-100">
-    {/* <script>
+<footer className="bg-tlgray-100">
+    <script>
         function toggleNav() {
             var hamburger = document.getElementById("hamburgerbtn");
             var overlay = document.getElementById("overlay");
@@ -27,28 +16,25 @@ export default function Footer() {
         document.querySelector('.scroll-top').addEventListener('click', () => {
             document.documentElement.scrollTop = 0;
         });
-    </script> */}
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
     <div className="flex items-center justify-between flex-wrap bg-gray-800 p-8 text-white">
         <div className="items-center text-xl text-grey-900 mr-6">
-            SolCapture
+            {{ .Site.Params.site.name }}
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto" id="mobileMenu">
             <div className="text-lg lg:flex-grow">
             </div>
             <div className="text-lg">
-            <a href="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8">
-                  Contact
+                {{ range .Site.Menus.footer }}
+                <a href="{{ .URL }}" className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8">
+                    {{ .Name }}
                 </a>
-                <a href="/about" className="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8">
-                  About
-                </a>
+                {{ end }}
             </div>
         </div>
     </div>
     <div className="copy pl-8 py-5 bg-tlgray-700 text-white text-md">
-        &copy; SolCapture 2021 All Rights Reserved.
+        &copy; {{site.Title}} {{ now.Year }} All Rights Reserved.
     </div>
 </footer>
-
-  )
-}

@@ -2,20 +2,27 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 
+//  className="container"
 export default function Home() {
   return (
-    <div className="container">
+    <div>
       <Head>
-        <title>Next.js Starter!</title>
+        <title>SolCapture</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+      <Header title="Welcome to my app!" />
+      <div className="hero-container">
+        <div class="hero-wrapper">
+          <div class="hero-slide">
+              <img src="img/slide/slide01.jpg" alt="" />
+              <div class="s-fade-txt">
+                  <h1 class="text-8xl text-white">SolCapture</h1>
+                  <h2 class="text-4xl text-white">Coming Soon</h2>
+              </div>
+          </div>
+        </div>
+      </div>
 
       <Footer />
     </div>
