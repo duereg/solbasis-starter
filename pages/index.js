@@ -4,7 +4,8 @@ import Footer from '@components/Footer'
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
+    <main className="flex-grow">
       <Head>
         <title>SolCapture</title>
         <link rel="icon" href="/favicon.ico" />
@@ -26,6 +27,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      </main>
       <Footer />
     </div>
   )
