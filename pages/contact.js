@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 
-export default function Home() {
+export default function Contact() {
   return (
     <div>
       <Head>
@@ -18,10 +18,10 @@ export default function Home() {
       <div className="hero-container">
         <div className="hero-wrapper">
           <div className="hero-slide">
-            <img src="img/slide/slide01.jpg" alt="" />
+            <img src="img/slide/slide01.jpg" alt="CityScape" />
             <div className="s-fade-txt">
-              <h1 className="text-8xl text-white">SolCapture</h1>
-              <h2 className="text-4xl text-white">Coming Soon</h2>
+              <h1 className="text-8xl text-white">Contact</h1>
+              <h2 className="text-4xl text-white">Never</h2>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-export default function Header({ title }) {
+export default function Header() {
   //return <h1 className="title">{title}</h1>
   return (
   <header>
