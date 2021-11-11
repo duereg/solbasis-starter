@@ -24,6 +24,8 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 [GetForm.io](https://app.getform.io/forms/33586)
 
+To generate reports and run the data gathering in the background, you should probably look at [these docs](https://docs.netlify.com/functions/build-with-javascript/)
+
 ### Installation options
 
 #### One-click deploy
