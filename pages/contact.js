@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="mx-3 col-span-3 lg:col-span-2 px-2">
           <h1 className="title text-5xl mb-4">Contact</h1>
           <div className="content py-1"><p>To contact us, please fill out the form below.</p>
-            <form name="contact" action="https://getform.io/" method="POST">
+            <form name="contact" action="https://getform.io/f/6c5b0433-03aa-4b6c-bb68-decaa3e5125a" method="POST">
               <div className="input">
                 <input type="text" placeholder="Name" name="name" className="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required=""/>
               </div>
