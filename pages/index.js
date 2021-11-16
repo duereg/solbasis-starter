@@ -21,8 +21,9 @@ export default function Home() {
           <div className="hero-slide">
             <img src="img/slide/slide01.jpg" alt="" />
             <div className="s-fade-txt">
-              <h1 className="text-8xl text-white">SolCapture</h1>
-              <h2 className="text-4xl text-white">Coming Soon</h2>
+              <h3 className="text-4xl text-white px-8 py-2 bg-gray-800 bold">Track staking rewards earned on Solana</h3>
+              <h2 className="text-3xl text-white px-8 py-2 bg-gray-800">All you need is a stake address & an email address</h2>
+              <h3 className="text-3xl text-white"><a href="/contact" className="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400">Get Started Now</a></h3>
             </div>
           </div>
         </div>
