@@ -7,7 +7,7 @@ export default function Contact() {
     <div className="flex flex-col min-h-screen">
     <main className="flex-grow">
       <Head>
-        <title>SolCapture</title>
+        <title>SolCapture - Contact</title>
         <link rel="icon" href="/favicon.ico" />
         <script src="js/navigation.js" type="text/javascript"></script>
       </Head>
