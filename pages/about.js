@@ -4,9 +4,11 @@ import Footer from '@components/Footer'
 
 export default function About() {
   return (
-    <div>
+
+    <div className="flex flex-col min-h-screen">
+    <main className="flex-grow">
       <Head>
-        <title>SolCapture</title>
+        <title>SolCapture - About Us</title>
         <link rel="icon" href="/favicon.ico" />
         <script src="js/navigation.js" type="text/javascript"></script>
       </Head>
@@ -15,17 +17,15 @@ export default function About() {
       <div className="scroll-top rounded-full">
         <span className="icon-keyboard_arrow_up text-2xl"></span>
       </div>
-      <div className="hero-container">
-        <div className="hero-wrapper">
-          <div className="hero-slide">
-            <img src="img/slide/slide01.jpg" alt="CityScape" />
-            <div className="s-fade-txt">
-              <h1 className="text-8xl text-white">About</h1>
-              <h2 className="text-4xl text-white">Nothing</h2>
-            </div>
+      <div className="mx-auto my-10 max-w-6xl">
+        <div className="mx-3 col-span-3 lg:col-span-2 px-2">
+          <h1 className="title text-5xl mb-4">About</h1>
+          <div className="content py-1">
+            <p>SolCapture is founded by Accounting and IT Professionals. We offer specialized accounting analytic services within the Solana Blockchain.  We currently are offering a staking reward monitoring service which tracks taxable events related to staking rewards. </p>
           </div>
         </div>
       </div>
+      </main>
       <Footer />
     </div>
   )
