@@ -21,7 +21,7 @@ export default function About() {
         <div className="mx-3 col-span-3 lg:col-span-2 px-2">
           <h1 className="title text-5xl mb-4">About</h1>
           <div className="content py-1">
-            <p>SolCapture is founded by Accounting and IT Professionals. We offer specialized accounting analytic services within the Solana Blockchain.  We currently are offering a staking reward monitoring service which tracks taxable events related to staking rewards. </p>
+            <p>SolCapture is founded by Accounting and Tech Professionals. We offer specialized accounting analytic services within the Solana Blockchain.  We currently offer a staking reward monitoring service which tracks taxable events related to staking rewards.</p>
           </div>
         </div>
       </div>
