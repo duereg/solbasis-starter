@@ -509,3 +509,7 @@ input,textarea{
 .url {
   background-color: #222;
 }
+.title {
+  padding-bottom: 10px;
+  border-bottom: solid 1px #3b5998;
+}
