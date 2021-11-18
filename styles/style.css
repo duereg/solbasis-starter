@@ -713,3 +713,7 @@ img {
 header {
   border-bottom: 2px solid rgba(31,41,55);
 }
+
+.header-name {
+  display: inline-block;
+}

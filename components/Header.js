@@ -17,7 +17,7 @@ export default function Header() {
         <div className="flex items-center flex-shrink-0 text-xl text-grey-900 mr-6">
           <a href="/" className="lg:inline-block text-white">
             <img alt="SolCapture" className="h-14 mr-3 lg:inline-block" src="/img/logo/logo-2.png" />
-            <div className="lg:inline-block">SolCapture</div>
+            <div className="header-name sm:hidden">SolCapture</div>
           </a>
         </div>
         <div className="block lg:hidden">
