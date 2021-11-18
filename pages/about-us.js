@@ -43,7 +43,7 @@ export default function About() {
               <div className="row-wrapper">
                 <div className="photo-wrapper">
                   <div className="profile-picture">
-                    <img width="200" title="Matt Blair, SVP of Software" src="/img/matt.png" height="200" alt="Matt Blair, SVP of Software" className="profile-picture-image" />
+                    <img width="200" title="Matt Blair, VP of Software" src="/img/matt.png" height="200" alt="Matt Blair, SVP of Software" className="profile-picture-image" />
                   </div>
                 </div>
                 <div className="bio-wrapper">
@@ -58,7 +58,7 @@ export default function About() {
               <div className="row-wrapper">
                 <div className="photo-wrapper">
                   <div className="profile-picture">
-                    <img width="200" title="Daniel Agren, SVP of Systems" src="/img/Danny-2.png" height="200" alt="Daniel Agren, SVP of Systems" className="profile-picture-image" />
+                    <img width="200" title="Daniel Agren, VP of Systems" src="/img/Danny3.png" height="200" alt="Daniel Agren, SVP of Systems" className="profile-picture-image" />
                   </div>
                 </div>
                 <div className="bio-wrapper">
