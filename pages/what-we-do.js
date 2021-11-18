@@ -20,12 +20,21 @@ export default function About() {
             <div className="mx-3 col-span-3 lg:col-span-2 px-2">
               <h1 className="title text-5xl mb-4">What We Do</h1>
               <div className="content py-1">
-                <p>SolCapture tracks the cost basis of the staking rewards you earn on the Solana blockchain.</p>
-                <p>We provide an upfront history-to-date of your Solana transactions.</p>
-                <p>We offer packages that include weekly, monthly, or annual reports</p>
-                <p>Our reports provide your tax professional with the necessary information to minimize tax gains and maximize tax losses.</p>
-                <p>Our report method provides enough detail to choose between Specific Lot Identification, Average Cost, FIFO, or LIFO cost basis method.</p>
-                <p>This saves you in tax preparation fees when it is time to prepare your tax returns.</p>
+                <ul>
+                  <li>SolCapture tracks the cost basis of the staking rewards you earn on the Solana blockchain.</li>
+                  <li>We provide an upfront history-to-date of your Solana transactions.</li>
+                  <li>We offer packages that include weekly, monthly, or annual reports</li>
+                  <li>Our reports provide your tax professional with the necessary information to minimize tax gains and maximize tax losses.</li>
+                  <li>Our report method provides enough detail to choose between various cost basis methods:
+                    <ul>
+                      <li>Specific Lot Identification</li>
+                      <li>Average Cost</li>
+                      <li>FIFO</li>
+                      <li>LIFO</li>
+                    </ul>
+                  </li>
+                  <li>This saves you in tax preparation fees when it is time to prepare your tax returns.</li>
+                </ul>
               </div>
             </div>
       </div>

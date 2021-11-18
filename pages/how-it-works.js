@@ -19,7 +19,7 @@ export default function About() {
       </div>
       <div className="mx-auto my-10 max-w-6xl">
         <div className="mx-3 col-span-3 lg:col-span-2 px-2">
-          <h1 className="title text-5xl mb-4">How it works</h1>
+          <h1 className="title text-5xl">How it works</h1>
           <div className="content py-1">
             <ol>
               <li>Sign up with SolCapture and provide the required information for us to analyze the Solana blockchain on your behalf.</li>
