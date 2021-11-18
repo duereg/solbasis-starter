@@ -2,7 +2,7 @@ import routes from './routes';
 
 export default function Header() {
   return (
-    <header>
+    <header className="text-white bg-tlgray-700">
       <div id="overlay">
         <ul className="text-center list-none text-white text-3xl">
           {routes.map(route => (
@@ -15,7 +15,7 @@ export default function Header() {
       </div>
       <nav className="flex items-center justify-between flex-wrap bg-opacity-100 p-4">
         <div className="flex items-center flex-shrink-0 text-xl text-grey-900 mr-6">
-          <a href="/" className="lg:inline-block">
+          <a href="/" className="lg:inline-block text-white">
             <img alt="SolCapture" className="h-14 mr-3 lg:inline-block" src="/img/logo/logo-2.png" />
             <div className="lg:inline-block">SolCapture</div>
           </a>
@@ -32,7 +32,7 @@ export default function Header() {
           </div>
           <div className="text-lg">
           {routes.map(route => (
-            <a href={route.url} key={route.url} className="duration-200 block mt-4 lg:inline-block lg:mt-0 hover:opacity-60 mr-8">
+            <a href={route.url} key={route.url} className="duration-200 block mt-4 lg:inline-block lg:mt-0 hover:opacity-60 mr-8 text-white">
               {route.title}
             </a>))}
           </div>

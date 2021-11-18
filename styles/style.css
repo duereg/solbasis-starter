@@ -711,10 +711,5 @@ img {
 }
 
 header {
-  background-color: rgba(55,65,81);
-  color: rgba(255,255,255);
-}
-
-header a {
-  color: rgba(255,255,255);
+  border-bottom: 2px solid rgba(31,41,55);
 }
