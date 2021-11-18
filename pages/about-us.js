@@ -37,7 +37,8 @@ export default function About() {
                 <div className="bio-wrapper">
                   <p><a href="https://www.linkedin.com/in/andrew-creedon-cpa-cfe-0741b123/">Andrew Creedon</a> is an early Solana Validator, Certified Public Accountant, and Certified Fraud Examiner. </p>
                   <p>Developer of complex financial models to accurately identify various assets and apply different accounting protocols to properly record and recognize each asset.</p>
-                  <p>Specialist in financial analysis and accounting services across a variety of industries. </p>
+                  <p>Specialist in financial analysis and accounting services across a variety of industries.</p>
+                  <p>Alumni of PricewaterhouseCoopers.</p>
                 </div>
               </div>
               <div className="row-wrapper">
