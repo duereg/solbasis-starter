@@ -260,7 +260,7 @@ body.scroll-lock {
   font-family: "Open Sans", sans-serif;
 }
 .content li {
-  font-size: 1.1em;
+  font-size: 1.2em;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
@@ -273,7 +273,7 @@ body.scroll-lock {
 .content p {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  font-size: 1.1em;
+  font-size: 1.2em;
   letter-spacing: 0.03em;
 }
 .content h1,.content h2,.content h3,.content h4,.content h5,.content h6 {

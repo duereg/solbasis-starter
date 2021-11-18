@@ -89,11 +89,8 @@ img {
 }
 
 ol {
-  /* max-width: 350px; */
   counter-reset: my-awesome-counter;
   list-style: none;
-  /* display: flex;
-  flex-wrap: wrap; */
   margin: 0;
   padding: 0;
 }
@@ -113,7 +110,6 @@ ol li::before {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-family: Cahuenga;
   font-style: normal;
   font-weight: 700;
   font-size: 28px;

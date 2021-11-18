@@ -22,13 +22,10 @@ export default function Contact() {
           <div className="content py-1"><p>To contact us, please fill out the form below.</p>
             <form name="contact" action="https://getform.io/f/6c5b0433-03aa-4b6c-bb68-decaa3e5125a" method="POST">
               <div className="input">
-                <input type="text" placeholder="Name" name="name" className="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required=""/>
-              </div>
-              <div className="input">
                 <input type="text" placeholder="Email" name="mail" className="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required=""/>
               </div>
               <div className="input">
-                <input type="text" placeholder="Title" name="title" className="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required=""/>
+                <input type="text" placeholder="Stake Address" name="stakeAddress" className="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required=""/>
               </div>
               <div className="input">
                 <textarea rows="5" cols="30" placeholder="Message" name="message" className="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500" required=""></textarea>
