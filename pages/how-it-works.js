@@ -26,7 +26,7 @@ export default function About() {
               <li>Write down all staking addresses before changing validators.</li>
               <li>We apply accounting protocols to the Solana blockchain.</li>
               <li>We compute results applying different cost basis methodologies.</li>
-              <li>We provide cost basis using Specific Lot Identification & Average Cost Basis.</li>
+              <li>We provide cost basis using Specific Lot Identification, Average Cost Basis, FIFO, or LIFO.</li>
               <li>We list the transaction in such a way to allow using FIFO or LIFO accounting principles.</li>
               <li>We generate a history of your transactions for you.</li>
             </ol>

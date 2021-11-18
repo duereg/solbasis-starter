@@ -22,10 +22,10 @@ export default function About() {
               <div className="content py-1">
                 <p>SolCapture tracks the cost basis of the staking rewards you earn on the Solana blockchain.</p>
                 <p>We provide an upfront history-to-date of your Solana transactions.</p>
-                <p>We also provide ongoing monthly reports containing your taxable transactions to help with your reporting needs.</p>
-                <p>This can help minimize tax gains and maximize tax losses.</p>
-                <p>Additionally, our reporting method allows you to choose among the Average Cost, FIFO, or LIFO cost basis method. </p>
-                <p>This saves you tax preparation fees when it is time to prepare your tax returns.</p>
+                <p>We offer packages that include weekly, monthly, or annual reports</p>
+                <p>Our reports provide your tax professional with the necessary information to minimize tax gains and maximize tax losses.</p>
+                <p>Our report method provides enough detail to choose between Specific Lot Identification, Average Cost, FIFO, or LIFO cost basis method.</p>
+                <p>This saves you in tax preparation fees when it is time to prepare your tax returns.</p>
               </div>
             </div>
       </div>
