@@ -16,7 +16,7 @@ export default function Header() {
       <nav className="flex items-center justify-between flex-wrap bg-opacity-100 p-4">
         <div className="flex items-center flex-shrink-0 text-xl text-grey-900 mr-6">
           <a href="/" className="lg:inline-block">
-            <img alt="SolCapture" className="h-14 mr-3 lg:inline-block" src="/img/logo/0x0.png" />
+            <img alt="SolCapture" className="h-14 mr-3 lg:inline-block" src="/img/logo/logo-2.png" />
             <div className="lg:inline-block">SolCapture</div>
           </a>
         </div>
@@ -32,7 +32,7 @@ export default function Header() {
           </div>
           <div className="text-lg">
           {routes.map(route => (
-            <a href={route.url} key={route.url} className="duration-200 block mt-4 lg:inline-block lg:mt-0 text-black hover:opacity-60 mr-8">
+            <a href={route.url} key={route.url} className="duration-200 block mt-4 lg:inline-block lg:mt-0 hover:opacity-60 mr-8">
               {route.title}
             </a>))}
           </div>
