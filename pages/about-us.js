@@ -51,7 +51,7 @@ export default function About() {
                     author of libraries such as <a href="https://github.com/duereg/js-algorithms">js-algorithms</a>, <a href="https://github.com/duereg/songbird">songbird</a>,
                     contributor to projects such as <a href="https://github.com/emberjs/ember.js">ember</a> and <a href="https://github.com/emberjs/data">ember-data</a>,
                     as well as a maintainer of <a href="https://github.com/btford/write-good">write-good</a>.</p>
-                  <p><a href="https://blog.mattblair.co/">Technical Writer</a>, Presenter at technical meetups and <a href="https://www.youtube.com/watch?v=WiANbp0alPs">conference speaker</a>.</p>
+                  <p>You can read some of his <a href="https://blog.mattblair.co/">industry musings here</a>, or see him present at technical meetups and <a href="https://www.youtube.com/watch?v=WiANbp0alPs">conferences</a>.</p>
                   <p>Alumni of such companies as Stripe, Slack, and Rivian</p>
                 </div>
               </div>
@@ -62,8 +62,7 @@ export default function About() {
                   </div>
                 </div>
                 <div className="bio-wrapper">
-                  <p><a href="https://www.linkedin.com/in/dagren/">Daniel Agren</a> is a tech professional who specializes in Computer Crime, Forensics, and Auditing.
-                    He deals in computer Hardware Fundamentals as they relate to information defense technologies and Information Security Fundamentals.</p>
+                  <p><a href="https://www.linkedin.com/in/dagren/">Daniel Agren</a> is a tech professional specializing in Virtualization, Hot/Cold Storage, and the Solana ecosystem including validators. He works in computer hardware fundamentals related to virtualized environments such as OpenStack and VMware. His specialities relate to information defense technologies and information security.</p>
                 </div>
               </div>
             </div>
