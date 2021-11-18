@@ -75,13 +75,51 @@ img, svg, video, canvas, audio, iframe, embed, object {
 img {
   border-style: solid;
 }
+
 .hero-slide .s-fade-txt {
   animation: FadeAni .5s ease 1s 1 normal both;
 }
+
 .hero-slide .s-fade-txt {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   opacity: 0;
+}
+
+ol {
+  /* max-width: 350px; */
+  counter-reset: my-awesome-counter;
+  list-style: none;
+  /* display: flex;
+  flex-wrap: wrap; */
+  margin: 0;
+  padding: 0;
+}
+ol li {
+  margin: 1em 0;
+  display: block;
+  position: relative;
+  counter-increment: my-awesome-counter;
+  position: relative;
+}
+ol li::before {
+  content: counter(my-awesome-counter);
+  border-radius: 8px;
+  background-color: #3b5998;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Cahuenga;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 22px;
+  font-feature-settings: "pnum" on,"lnum" on;
+  color: #fff;
+  margin-top: 10px;
+  margin-right: 10px;
 }
