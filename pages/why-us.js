@@ -32,7 +32,7 @@ export default function About() {
 
             <p>
               With the reports we provide, we track when your rewards were earned and the cost basis of the reward at the time it was earned.
-              Our reporting process allow you to plan their tax year whether that means projecting
+              Our reporting process allow you to plan your tax year whether that means projecting
               quarterly estimated tax payments or recording all taxable transactions at the end of the year.</p>
 
             <p>If you plan on holding your tokens for a long time, we can store a history of your staking rewards.
