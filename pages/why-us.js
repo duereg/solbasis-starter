@@ -22,15 +22,23 @@ export default function About() {
         <div className="mx-3 col-span-3 lg:col-span-2 px-2">
           <h1 className="title text-5xl mb-4">Why do you need our service?</h1>
           <div className="content py-1">
-            <p>You can earn staking rewards every 2-4 days on the Solana blockchain. Each reward is currently viewed as a taxable event and treated as ordinary income.
-              When the reward is earned, our service records the cost basis of the reward which can be used at a later date should a user decide to sell their token.
-              Our reporting process allows individuals to plan their tax year whether that means projecting quarterly estimated tax payments or recording all taxable transactions at the end of the year.</p>
-            <p>The sale of a token is currently considered a taxable event for U.S. citizens and a taxpayer needs to have the cost basis to determine if a realized gain or loss was incurred.
-              The cost basis is the original value or purchase price and date of an asset, in this case Sol.
-              With the reports we provide, users aren’t left guessing when the reward was earned or the value of the reward at the time it was earned.
-              If you plan on holding your token for a long time, we have a stored history of your staking rewards.
+            <p>You can earn staking rewards every 2-4 days on the Solana blockchain.
+              Rewards are viewed as a taxable event and treated as ordinary income.
+              The sale of a token is a taxable event for U.S. citizens and
+              a taxpayer needs to know the cost basis of the sale for their taxes.
+            </p>
+
+            <p>So why us?</p>
+
+            <p>
+              With the reports we provide, we track when your rewards were earned and the cost basis of the reward at the time it was earned.
+              Our reporting process allow you to plan their tax year whether that means projecting
+              quarterly estimated tax payments or recording all taxable transactions at the end of the year.</p>
+
+            <p>If you plan on holding your tokens for a long time, we can store a history of your staking rewards.
               The higher your cost basis, the less tax you will pay down the road when you sell.</p>
-            <p>SolCapture's accounting protocols track ongoing staking rewards for individuals running a validator or staking Sol with a validator.
+
+            <p>SolCapture's accounting protocols track ongoing staking rewards if you run a validator or stake Sol with a validator.
               If you are interested in receiving information about taxable events related to staking please <a href="/contact">reach out</a> to us.</p>
           </div>
         </div>

@@ -23,7 +23,7 @@ export default function About() {
                 <ul>
                   <li>SolCapture tracks the cost basis of the staking rewards you earn on the Solana blockchain.</li>
                   <li>We provide an upfront history-to-date of your Solana transactions.</li>
-                  <li>We offer packages that include weekly, monthly, or annual reports</li>
+                  <li>We offer packages that include weekly, monthly, or annual reports.</li>
                   <li>Our reports provide your tax professional with the necessary information to minimize tax gains and maximize tax losses.</li>
                   <li>Our report method provides enough detail to choose between various cost basis methods:
                     <ul>

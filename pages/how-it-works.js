@@ -22,8 +22,7 @@ export default function About() {
           <h1 className="title text-5xl">How it works</h1>
           <div className="content py-1">
             <ol>
-              <li>Sign up with SolCapture and provide the required information for us to analyze the Solana blockchain on your behalf.</li>
-              <li>Write down all staking addresses before changing validators.</li>
+              <li>Sign up with SolCapture and we'll analyze the Solana blockchain on your behalf.</li>
               <li>We apply accounting protocols to the Solana blockchain.</li>
               <li>We compute results applying different cost basis methodologies.</li>
               <li>We provide cost basis using Specific Lot Identification, Average Cost Basis, FIFO, or LIFO.</li>
