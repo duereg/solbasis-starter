@@ -343,6 +343,7 @@ body.scroll-lock {
   border-left: 4px solid #222222;
   font-weight: bold;
   font-size: 1.55em;
+  margin: .5em 0 .25em;
 }
 
 .content h3 {
