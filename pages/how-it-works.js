@@ -21,7 +21,7 @@ export default function About() {
         <div className="mx-3 col-span-3 lg:col-span-2 px-2">
           <h1 className="title text-5xl">How it works</h1>
           <div className="content py-1">
-            <h2>What you will do:</h2>
+            <h2>What you need to do:</h2>
             <ol>
               <li>Sign up with SolCapture and we'll analyze the Solana blockchain on your behalf.</li>
             </ol>
