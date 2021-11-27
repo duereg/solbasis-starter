@@ -4,6 +4,7 @@ import Footer from '@components/Footer'
 
 export default function Home() {
   // pexels-photo-935756, 853151, 6893801
+  // image_1, simu-liu-stock-image-tweet-copy
   return (
     <div className="flex flex-col min-h-screen">
     <main className="flex-grow">
@@ -20,7 +21,7 @@ export default function Home() {
       <div className="hero-container">
         <div className="hero-wrapper">
           <div className="hero-slide">
-            <img src="img/slide/pexels-photo-935756.jpeg" alt="" />
+            <img src="img/slide/simu-liu-stock-image-tweet-copy.jpeg" alt="" />
             <div className="s-fade-txt text-white bg-gray-800 text-center">
               <div className="textHolder">
                 <h3 className="text-4xl px-8 py-2 bold">Track staking rewards earned on Solana</h3>
