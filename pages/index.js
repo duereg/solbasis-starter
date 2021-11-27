@@ -3,6 +3,7 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 
 export default function Home() {
+  // pexels-photo-935756, 853151, 6893801
   return (
     <div className="flex flex-col min-h-screen">
     <main className="flex-grow">
@@ -19,11 +20,15 @@ export default function Home() {
       <div className="hero-container">
         <div className="hero-wrapper">
           <div className="hero-slide">
-            <img src="img/slide/slide01.jpg" alt="" />
-            <div className="s-fade-txt text-white bg-gray-800  text-center">
-              <h3 className="text-4xl px-8 py-2 bold">Track staking rewards earned on Solana</h3>
-              <h2 className="text-3xl px-8 py-2">All you need is a stake address & an email address</h2>
-              <h3 className="text-3xl py-2"><a href="/contact" className="px-8 py-2 duration-200 cursor-pointer transition-colors hover:bg-gray-400">Get Started Now</a></h3>
+            <img src="img/slide/pexels-photo-935756.jpeg" alt="" />
+            <div className="s-fade-txt text-white bg-gray-800 text-center">
+              <div className="textHolder">
+                <h3 className="text-4xl px-8 py-2 bold">Track staking rewards earned on Solana</h3>
+                <h2 className="text-3xl px-8 py-2">All you need is a stake address & an email address</h2>
+                <h3 className="text-3xl py-2">
+                  <a href="/contact" className="px-8 py-2 duration-200 cursor-pointer transition-colors hover:bg-gray-400">Get Started Now</a>
+                </h3>
+              </div>
             </div>
           </div>
         </div>

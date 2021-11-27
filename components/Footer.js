@@ -4,7 +4,7 @@ import routes from './routes';
 export default function Footer() {
   return (
     <footer className="bg-tlgray-100">
-
+{/*
       <div className="flex items-center justify-between flex-wrap bg-gray-800 p-8 text-white">
         <div className="items-center text-xl text-grey-900 mr-6">
           SolCapture
@@ -19,7 +19,7 @@ export default function Footer() {
           </a>))}
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="copy pl-8 py-5 bg-tlgray-700 text-white text-md">
         &copy; SolCapture 2021 All Rights Reserved.
       </div>

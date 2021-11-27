@@ -502,4 +502,9 @@ img {
   div.sm\:hidden {
     display: none
   }
+  div.hero-slide div.s-fade-txt {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
 }
