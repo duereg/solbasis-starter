@@ -20,6 +20,9 @@ export default function About() {
         <div className="scroll-top rounded-full">
           <span className="icon-keyboard_arrow_up text-2xl"></span>
         </div>
+        <div>
+          Danny is the best!
+        </div>
         <div className="mx-auto my-10 max-w-6xl">
           <div className="mx-3 col-span-3 lg:col-span-2 px-2">
             <h1 className="title text-5xl mb-4">About</h1>
