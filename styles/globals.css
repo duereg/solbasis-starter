@@ -131,3 +131,7 @@ ol li::before {
   margin-top: 10px;
   margin-right: 10px;
 }
+
+.date-input {
+  padding-bottom: 10px;
+}
