@@ -722,3 +722,7 @@ footer {
 .header-name {
   display: inline-block;
 }
+
+.sol-pay {
+  height: 2rem;
+}
