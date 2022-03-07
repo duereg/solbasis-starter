@@ -1,7 +1,8 @@
 import React from 'react';
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+import Script from 'next/script';
 
 export default function Contact() {
   const [hasWallet, setWallet] = React.useState(false);
@@ -21,9 +22,8 @@ export default function Contact() {
       <Head>
         <title>SolCapture - Contact</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="js/navigation.js" type="text/javascript"></script>
       </Head>
-
+      <Script src="js/navigation.js" type="text/javascript"></Script>
       <Header />
       <div className="scroll-top rounded-full">
         <span className="icon-keyboard_arrow_up text-2xl"></span>
@@ -42,7 +42,7 @@ export default function Contact() {
                           placeholder="Are you staking using a wallet?"
                           name="hasWallet"
                           checked={hasWallet} onChange={handleWalletChange} required=""/>
-                  <label className="switch-label" for="switch-wallet">Switch</label>
+                  <label className="switch-label" htmlFor="switch-wallet">Switch</label>
                 </div>
               </div>
               <div className="switch-wrapper">
@@ -56,7 +56,7 @@ export default function Contact() {
                           className="switch-input"
                           required=""
                           checked={hasValidator} onChange={handleValidatorChange} />
-                  <label className="switch-label" for="switch-validator">Switch</label>
+                  <label className="switch-label" htmlFor="switch-validator">Switch</label>
                 </div>
               </div>
               <div className="input">

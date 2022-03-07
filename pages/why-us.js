@@ -1,7 +1,8 @@
-
+import Script from 'next/script';
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import Link from 'next/link';
 
 export default function WhyUs() {
   return (
@@ -11,8 +12,8 @@ export default function WhyUs() {
       <Head>
         <title>SolCapture - Why Do You Need Our Service?</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="js/navigation.js" type="text/javascript"></script>
       </Head>
+      <Script src="js/navigation.js" type="text/javascript"></Script>
 
       <Header />
       <div className="scroll-top rounded-full">
@@ -38,8 +39,8 @@ export default function WhyUs() {
             <p>If you plan on holding your tokens for a long time, we can store a history of your staking rewards.
               The higher your cost basis, the less tax you will pay down the road when you sell.</p>
 
-            <p>SolCapture's accounting protocols track ongoing staking rewards if you run a validator or stake Sol with a validator.
-              If you are interested in receiving information about taxable events related to staking please <a href="/contact">reach out</a> to us.</p>
+            <p>SolCapture&apos;s accounting protocols track ongoing staking rewards if you run a validator or stake Sol with a validator.
+              If you are interested in receiving information about taxable events related to staking please <Link href="/contact">reach out</Link> to us.</p>
           </div>
         </div>
       </div>

@@ -1,20 +1,19 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Head from 'next/head';
+import Script from 'next/script';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
 
 export default function About() {
   return (
 
     <div className="flex flex-col min-h-screen">
-      <style>
-
-      </style>
       <main className="flex-grow">
         <Head>
           <title>SolCapture - About Us</title>
           <link rel="icon" href="/favicon.ico" />
-          <script src="js/navigation.js" type="text/javascript"></script>
         </Head>
+
+        <Script src="js/navigation.js" type="text/javascript"></Script>
 
         <Header />
         <div className="scroll-top rounded-full">

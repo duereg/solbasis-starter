@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import Script from 'next/script';
 
-export default function About() {
+export default function HowItWorks() {
   return (
 
     <div className="flex flex-col min-h-screen">
@@ -10,9 +11,8 @@ export default function About() {
       <Head>
         <title>SolCapture - How It Works</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="js/navigation.js" type="text/javascript"></script>
       </Head>
-
+      <Script src="js/navigation.js" type="text/javascript"></Script>
       <Header />
       <div className="scroll-top rounded-full">
         <span className="icon-keyboard_arrow_up text-2xl"></span>
@@ -23,7 +23,7 @@ export default function About() {
           <div className="content py-1">
             <h2>What you need to do:</h2>
             <ol>
-              <li>Sign up with SolCapture and we'll analyze the Solana blockchain on your behalf.</li>
+              <li>Sign up with SolCapture and we&apos;ll analyze the Solana blockchain on your behalf.</li>
             </ol>
             <h2>What we will do:</h2>
             <ol>

@@ -3,6 +3,7 @@ import React from 'react';
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import Script from 'next/script';
 
 import TextField from '@mui/material/TextField';
 import { LoadingButton } from '@mui/lab';
@@ -55,8 +56,8 @@ export default function GenerateReport() {
       <Head>
         <title>SolCapture - Generate Report</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="js/navigation.js" type="text/javascript"></script>
       </Head>
+        <Script src="js/navigation.js" type="text/javascript"></Script>
 
       <Header />
       <div className="scroll-top rounded-full">

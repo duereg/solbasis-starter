@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import Script from 'next/script';
 
 export default function WhatWeDo() {
   return (
@@ -9,8 +10,8 @@ export default function WhatWeDo() {
       <Head>
         <title>SolCapture - What We Do</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="js/navigation.js" type="text/javascript"></script>
       </Head>
+      <Script src="js/navigation.js" type="text/javascript"></Script>
 
       <Header />
           <div className="scroll-top rounded-full">
