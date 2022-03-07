@@ -15,7 +15,7 @@ import { encodeURL, createQR } from '@solana/pay';
 import { PublicKey } from '@solana/web3.js';
 import BigNumber from 'bignumber.js';
 
-export default function Contact() {
+export default function GenerateReport() {
   const [startDate, setStartDate] = React.useState(null);
   const [endDate, setEndDate] = React.useState(null);
   const [stakeAddress, setStakeAddress] = React.useState('');

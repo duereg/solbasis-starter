@@ -1,11 +1,13 @@
 import routes from './routes';
 
 export default function Header() {
+  const visibleRoutes = routes.filter(route => !route.hidden);
+
   return (
     <header className="text-white bg-tlgray-700">
       <div id="overlay">
         <ul className="text-center list-none text-white text-3xl">
-          {routes.map(route => (
+          {visibleRoutes.map(route => (
             <li className="p-2" key={route.url} >
             <a href={route.url}>
               <span>{route.title}</span>
@@ -31,7 +33,7 @@ export default function Header() {
           <div className="text-lg lg:flex-grow">
           </div>
           <div className="text-lg">
-          {routes.map(route => (
+          {visibleRoutes.map(route => (
             <a href={route.url} key={route.url} className="duration-200 block mt-4 lg:inline-block lg:mt-0 hover:opacity-60 mr-8 text-white">
               {route.title}
             </a>))}
