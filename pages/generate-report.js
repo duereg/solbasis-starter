@@ -15,6 +15,9 @@ import axios from 'axios';
 import { encodeURL, createQR } from '@solana/pay';
 import { PublicKey } from '@solana/web3.js';
 import BigNumber from 'bignumber.js';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 
 export default function GenerateReport() {
   const [startDate, setStartDate] = React.useState(null);
@@ -47,6 +50,9 @@ export default function GenerateReport() {
       const qrCode = createQR(url, 200);
       qrCode.append(ref.current);
       return qrCode;
+    }).finally(() => {
+      // TODO: PRINT ERROR MESSAGE
+      setLoading(false);
     });
   }
 
@@ -92,7 +98,6 @@ export default function GenerateReport() {
                 </LocalizationProvider>
               </div>
 
-
               <div className="date-input">
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <DatePicker
@@ -105,6 +110,12 @@ export default function GenerateReport() {
                   />
                 </LocalizationProvider>
               </div>
+{/*
+              <div className="date-input">
+                <FormGroup>
+                  <FormControlLabel control={<Switch />} label="I'm cool and stake with SolCapture (we'll check this)" />
+                </FormGroup>
+              </div> */}
 
               {_.isEmpty(solanaUrl) &&
                 <div className="date-input">
