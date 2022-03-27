@@ -36,13 +36,13 @@ export function PayPage({ isOpen, checkout }) {
       </a>
     </div>
 
+    {/* // TODO: This renders too many times */}
     {!_.isEmpty(solanaUrl) &&
       <div ref={ref} />
     }
 
     <p>Pay manually and enter your transaction ID here:</p>
     <div>TODO: text box and button to submit</div>
-
     <div>download button?</div>
   </Collapse>;
 }
