@@ -5,6 +5,11 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Script from 'next/script';
 
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
+
 import TextField from '@mui/material/TextField';
 import { LoadingButton } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -26,34 +31,57 @@ export default function GenerateReport() {
   const [solanaUrl, setSolanaUrl] = React.useState('');
   const [amount, setAmount] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
+  const [isErrorOpen, setErrorOpen] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState('');
+  const [isCool, setIsCool] = React.useState(false);
   const ref = React.useRef(null);
+
+  function resetScreen() {
+    setErrorMessage('');
+    setErrorOpen(false);
+    setAmount(0);
+    setSolanaUrl('');
+  }
 
   function onButtonClick() {
     setLoading(true);
-    const url = `https://akyeck1ms6.execute-api.us-east-1.amazonaws.com/generateQuote?startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&stakeAddress=${stakeAddress}&reportType=json`;
-    axios.get(url).then(results => {
-      const json = results.data;
-      setAmount(json.amount);
+    const url = `https://akyeck1ms6.execute-api.us-east-1.amazonaws.com/generateQuote?startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&stakeAddress=${stakeAddress}&reportType=json&isCool=${isCool}`;
 
-      const checkout = {...json,
-        recipient: new PublicKey(json.recipient),
-        amount: new BigNumber(json.amount),
-        reference: new PublicKey(json.reference), // this is the transaction signature!
-      };
+    console.log('about to call', url);
+    axios.get(url)
+      .then(results => {
+        const json = results.data;
+        setAmount(json.amount);
 
-      return checkout;
-    }).then(checkout => {
-      const url = encodeURL(checkout);
-      setSolanaUrl(url);
-      return url;
-    }).then(url => {
-      const qrCode = createQR(url, 200);
-      qrCode.append(ref.current);
-      return qrCode;
-    }).finally(() => {
-      // TODO: PRINT ERROR MESSAGE
-      setLoading(false);
-    });
+        const checkout = {...json,
+          recipient: new PublicKey(json.recipient),
+          amount: new BigNumber(json.amount),
+          reference: new PublicKey(json.reference), // this is the transaction signature!
+        };
+
+        return checkout;
+      }).then(checkout => {
+        const url = encodeURL(checkout);
+        setSolanaUrl(url);
+        return url;
+      }).then(url => {
+        const qrCode = createQR(url, 200);
+        qrCode.append(ref.current);
+        return qrCode;
+      }).catch(ex => {
+        const errorMessage = _.get(ex, 'response.data.message');
+
+        if (!_.isEmpty(errorMessage)) {
+          setErrorMessage(`Request Failed: ${errorMessage}`);
+        } else {
+          setErrorMessage("There is a problem on our end. The support team has been notified.")
+        }
+
+        setErrorOpen(true);
+      }).finally(() => {
+        // TODO: PRINT ERROR MESSAGE
+        setLoading(false);
+      });
   }
 
   return (
@@ -72,11 +100,34 @@ export default function GenerateReport() {
       <div className="mx-auto my-10 max-w-6xl">
         <div className="mx-3 col-span-3 lg:col-span-2 px-2">
           <h1 className="title text-5xl mb-4">Generate Report</h1>
-          <div className="content py-1"><p>To generate a stake report, please fill out the form below.</p>
+          <div className="content py-1">
+              <p>To generate a stake report, please fill out the form below.</p>
+              <Collapse in={isErrorOpen}>
+                <Alert
+                  variant="outlined"
+                  severity="error"
+                  action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => {
+                        resetScreen();
+                      }}
+                    >
+                      <CloseIcon fontSize="inherit" />
+                    </IconButton>
+                  }
+                  sx={{ mb: 2 }}
+                >
+                  {errorMessage}
+                </Alert>
+              </Collapse>
               <div className="input">
                 <input
                   type="text"
                   onChange={(event) => {
+                    resetScreen();
                     setStakeAddress(event.target.value);
                   }}
                   placeholder="Stake Address"
@@ -91,6 +142,7 @@ export default function GenerateReport() {
                     label="Start Date"
                     value={startDate}
                     onChange={(newValue) => {
+                      resetScreen();
                       setStartDate(newValue);
                     }}
                     renderInput={(params) => <TextField {...params} />}
@@ -104,18 +156,24 @@ export default function GenerateReport() {
                     label="End Date"
                     value={endDate}
                     onChange={(newValue) => {
+                      resetScreen();
                       setEndDate(newValue);
                     }}
                     renderInput={(params) => <TextField {...params} />}
                   />
                 </LocalizationProvider>
               </div>
-{/*
+
+
+              {/* TODO: record isCool form this switch  */}
               <div className="date-input">
                 <FormGroup>
-                  <FormControlLabel control={<Switch />} label="I'm cool and stake with SolCapture (we'll check this)" />
+                  <FormControlLabel control={<Switch onChange={(event) => {
+                    resetScreen();
+                    setIsCool(event.target.checked)
+                  }}/>} label="I'm cool and stake with SolCapture (we'll check this)" />
                 </FormGroup>
-              </div> */}
+              </div>
 
               {_.isEmpty(solanaUrl) &&
                 <div className="date-input">
