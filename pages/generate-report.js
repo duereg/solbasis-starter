@@ -3,18 +3,13 @@ import React from 'react';
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import { ErrorLabel } from '@components/ErrorLabel';
+import { DateSelector } from '@components/DateSelector';
+import { PayPage } from '@components/PayPage';
 import Script from 'next/script';
 
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
-import CloseIcon from '@mui/icons-material/Close';
-
-import TextField from '@mui/material/TextField';
 import { LoadingButton } from '@mui/lab';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
 
 import axios from 'axios';
 import { encodeURL, createQR } from '@solana/pay';
@@ -34,6 +29,7 @@ export default function GenerateReport() {
   const [isErrorOpen, setErrorOpen] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
   const [isCool, setIsCool] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
   const ref = React.useRef(null);
 
   function resetScreen() {
@@ -44,6 +40,24 @@ export default function GenerateReport() {
   }
 
   function onButtonClick() {
+    if(_.isEmpty(stakeAddress)) {
+      setErrorMessage('You must provide a valid stake address to continue');
+      setErrorOpen(true);
+      return;
+    }
+
+    if (!_.isDate(startDate)) {
+      setErrorMessage('You must provide a valid start date to continue');
+      setErrorOpen(true);
+      return;
+    }
+
+    if(!_.isDate(endDate)) {
+      setErrorMessage('You must provide a valid end date to continue');
+      setErrorOpen(true);
+      return;
+    }
+
     setLoading(true);
     const url = `https://akyeck1ms6.execute-api.us-east-1.amazonaws.com/generateQuote?startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&stakeAddress=${stakeAddress}&reportType=json&isCool=${isCool}`;
 
@@ -67,6 +81,7 @@ export default function GenerateReport() {
       }).then(url => {
         const qrCode = createQR(url, 200);
         qrCode.append(ref.current);
+        setIsOpen(false);
         return qrCode;
       }).catch(ex => {
         const errorMessage = _.get(ex, 'response.data.message');
@@ -74,12 +89,11 @@ export default function GenerateReport() {
         if (!_.isEmpty(errorMessage)) {
           setErrorMessage(`Request Failed: ${errorMessage}`);
         } else {
-          setErrorMessage("There is a problem on our end. The support team has been notified.")
+          setErrorMessage("There is a problem on our end. The support team has been notified. I would try again.")
         }
 
         setErrorOpen(true);
       }).finally(() => {
-        // TODO: PRINT ERROR MESSAGE
         setLoading(false);
       });
   }
@@ -101,28 +115,9 @@ export default function GenerateReport() {
         <div className="mx-3 col-span-3 lg:col-span-2 px-2">
           <h1 className="title text-5xl mb-4">Generate Report</h1>
           <div className="content py-1">
+            <Collapse in={isOpen}>
               <p>To generate a stake report, please fill out the form below.</p>
-              <Collapse in={isErrorOpen}>
-                <Alert
-                  variant="outlined"
-                  severity="error"
-                  action={
-                    <IconButton
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        resetScreen();
-                      }}
-                    >
-                      <CloseIcon fontSize="inherit" />
-                    </IconButton>
-                  }
-                  sx={{ mb: 2 }}
-                >
-                  {errorMessage}
-                </Alert>
-              </Collapse>
+              <ErrorLabel isOpen={isErrorOpen} onClose={resetScreen} message={errorMessage} />
               <div className="input">
                 <input
                   type="text"
@@ -136,36 +131,9 @@ export default function GenerateReport() {
                   required=""/>
               </div>
 
-              <div className="date-input">
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <DatePicker
-                    label="Start Date"
-                    value={startDate}
-                    onChange={(newValue) => {
-                      resetScreen();
-                      setStartDate(newValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </LocalizationProvider>
-              </div>
+              <DateSelector label={"Start Date"} value={startDate} onChange={resetScreen} setValue={setStartDate} />
+              <DateSelector label={"End Date"} value={endDate} onChange={resetScreen} setValue={setEndDate} />
 
-              <div className="date-input">
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <DatePicker
-                    label="End Date"
-                    value={endDate}
-                    onChange={(newValue) => {
-                      resetScreen();
-                      setEndDate(newValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </LocalizationProvider>
-              </div>
-
-
-              {/* TODO: record isCool form this switch  */}
               <div className="date-input">
                 <FormGroup>
                   <FormControlLabel control={<Switch onChange={(event) => {
@@ -174,36 +142,20 @@ export default function GenerateReport() {
                   }}/>} label="I'm cool and stake with SolCapture (we'll check this)" />
                 </FormGroup>
               </div>
+              <div className="date-input">
+                <LoadingButton
+                  onClick={onButtonClick}
+                  loading={loading}
+                  disabled={loading}
+                  variant="contained"
+                  className="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400"
+                >
+                  Generate Quote
+                </LoadingButton>
+              </div>
 
-              {_.isEmpty(solanaUrl) &&
-                <div className="date-input">
-                  <LoadingButton
-                    onClick={onButtonClick}
-                    loading={loading}
-                    disabled={loading}
-                    variant="contained"
-                    className="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400"
-                  >
-                    Generate Quote
-                  </LoadingButton>
-                </div>
-              }
-
-              {amount > 0 &&
-                <div className="date-input">
-                  <a href={solanaUrl}>
-                    <button type="button" href={solanaUrl} className="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400">
-                      Pay {amount} SOL
-                      <img alt="Pay for Quote with Sol" src="img/sol-pay.png" className="sol-pay" />
-                    </button>
-                  </a>
-                </div>
-              }
-
-              {!_.isEmpty(solanaUrl) &&
-                <div ref={ref} />
-              }
-              {/* <div>{solanaUrl}</div> */}
+            </Collapse>
+            <PayPage isOpen={!isOpen} amount={amount} solanaUrl={solanaUrl} ref={ref} />
           </div>
         </div>
       </div>
