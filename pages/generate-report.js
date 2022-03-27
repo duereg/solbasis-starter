@@ -12,9 +12,6 @@ import Collapse from '@mui/material/Collapse';
 import { LoadingButton } from '@mui/lab';
 
 import axios from 'axios';
-import { encodeURL, createQR } from '@solana/pay';
-import { PublicKey } from '@solana/web3.js';
-import BigNumber from 'bignumber.js';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
@@ -23,24 +20,20 @@ export default function GenerateReport() {
   const [startDate, setStartDate] = React.useState(null);
   const [endDate, setEndDate] = React.useState(null);
   const [stakeAddress, setStakeAddress] = React.useState('');
-  const [solanaUrl, setSolanaUrl] = React.useState('');
-  const [amount, setAmount] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
   const [isErrorOpen, setErrorOpen] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
   const [isCool, setIsCool] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(true);
-  const ref = React.useRef(null);
+  const [checkout, setCheckout] = React.useState({});
 
   function resetScreen() {
     setErrorMessage('');
     setErrorOpen(false);
-    setAmount(0);
-    setSolanaUrl('');
   }
 
   function onButtonClick() {
-    if(_.isEmpty(stakeAddress)) {
+    if (_.isEmpty(stakeAddress)) {
       setErrorMessage('You must provide a valid stake address to continue');
       setErrorOpen(true);
       return;
@@ -52,7 +45,7 @@ export default function GenerateReport() {
       return;
     }
 
-    if(!_.isDate(endDate)) {
+    if (!_.isDate(endDate)) {
       setErrorMessage('You must provide a valid end date to continue');
       setErrorOpen(true);
       return;
@@ -64,25 +57,8 @@ export default function GenerateReport() {
     console.log('about to call', url);
     axios.get(url)
       .then(results => {
-        const json = results.data;
-        setAmount(json.amount);
-
-        const checkout = {...json,
-          recipient: new PublicKey(json.recipient),
-          amount: new BigNumber(json.amount),
-          reference: new PublicKey(json.reference), // this is the transaction signature!
-        };
-
-        return checkout;
-      }).then(checkout => {
-        const url = encodeURL(checkout);
-        setSolanaUrl(url);
-        return url;
-      }).then(url => {
-        const qrCode = createQR(url, 200);
-        qrCode.append(ref.current);
+        setCheckout(JSON.stringify(results.data));
         setIsOpen(false);
-        return qrCode;
       }).catch(ex => {
         const errorMessage = _.get(ex, 'response.data.message');
 
@@ -155,7 +131,7 @@ export default function GenerateReport() {
               </div>
 
             </Collapse>
-            <PayPage isOpen={!isOpen} amount={amount} solanaUrl={solanaUrl} ref={ref} />
+            <PayPage isOpen={!isOpen} checkout={checkout} />
           </div>
         </div>
       </div>
