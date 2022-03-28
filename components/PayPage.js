@@ -4,9 +4,11 @@ import Collapse from '@mui/material/Collapse';
 import { encodeURL, createQR } from '@solana/pay';
 import { PublicKey } from '@solana/web3.js';
 import BigNumber from 'bignumber.js';
+import { LoadingButton } from '@mui/lab';
 
 export function PayPage({ isOpen, checkout }) {
   const ref = React.useRef(null);
+  const [loading, setLoading] = React.useState(false);
   let solanaUrl, qrCode, amount;
 
   if (!_.isEmpty(checkout)) {
@@ -22,17 +24,26 @@ export function PayPage({ isOpen, checkout }) {
     qrCode.append(ref.current);
   }
 
+  function onButtonClick() {
+
+  }
+
   return <Collapse in={isOpen && !_.isEmpty(checkout)}>
     <p>Your stake account looks good!</p>
-    <div>You have a couple payment options:</div>
+    {/* <div>You have a couple payment options:</div> */}
 
     <div>Use Solana Pay:</div>
     <div className="date-input">
       <a href={solanaUrl}>
-        <button type="button" href={solanaUrl} className="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400">
-          Pay {checkout.amount} SOL
+      <LoadingButton
+        onClick={onButtonClick}
+        loading={loading}
+        disabled={loading}
+        variant="contained"
+        className="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400">
+          Pay {amount} SOL
           <img alt="Pay for Quote with Sol" src="img/sol-pay.png" className="sol-pay" />
-        </button>
+      </LoadingButton>
       </a>
     </div>
 
