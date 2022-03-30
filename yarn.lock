@@ -3212,6 +3212,11 @@
   "resolved" "https://registry.npmjs.org/picomatch/-/picomatch-2.3.0.tgz"
   "version" "2.3.0"
 
+"poll-until-promise@^4.0.4":
+  "integrity" "sha512-1B4n5zdd7Y4VIuzqF+1MHzpw+OH4s4Z0X8BhqgaxvVcm50Fe1KFDS2lqAWAX9gQlE1pGVGWwdCTzy3vKjM4Dgg=="
+  "resolved" "https://registry.npmjs.org/poll-until-promise/-/poll-until-promise-4.0.4.tgz"
+  "version" "4.0.4"
+
 "postcss@8.4.5":
   "integrity" "sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg=="
   "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.4.5.tgz"

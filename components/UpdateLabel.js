@@ -4,11 +4,11 @@ import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
 
-export function ErrorLabel({ isOpen, onClose, message }) {
+export function UpdateLabel({ isOpen, onClose, message, severity = 'error' }) {
   return <Collapse in={isOpen}>
     <Alert
       variant="outlined"
-      severity="error"
+      severity={severity}
       action={<IconButton
         aria-label="close"
         color="inherit"

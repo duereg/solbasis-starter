@@ -1,0 +1,25 @@
+import { establishConnection} from './connection';
+import { findTransactionSignature, FindTransactionSignatureError } from '@solana/pay';
+import { waitFor } from 'poll-until-promise';
+
+export default async function getTransaction(reference) {
+  const connection = await establishConnection();
+  const signatureInfo = await waitFor(async () => {
+      console.log('about to fire');
+      try {
+        const signatureInfo = await findTransactionSignature(connection, reference, undefined, 'confirmed');
+        console.log('\n 🖌  Signature found: ', signatureInfo.signature);
+        return signatureInfo;
+      } catch (error) {
+        if (!(error instanceof FindTransactionSignatureError)) {
+          console.error('wrong error', error);
+          throw error;
+        }
+        console.log('no transaction found', error);
+        // apparently this signifies you want to run again.
+        return false;
+      }
+    }, { timeout: 60_000, interval: 500, verbose: true });
+
+  return signatureInfo;
+}

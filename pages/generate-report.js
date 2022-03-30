@@ -1,20 +1,20 @@
 import _ from 'lodash';
 import React from 'react';
+import axios from 'axios';
+
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-import { ErrorLabel } from '@components/ErrorLabel';
-import { DateSelector } from '@components/DateSelector';
-import { PayPage } from '@components/PayPage';
+import { useRouter } from 'next/router'
 import Script from 'next/script';
 
-import Collapse from '@mui/material/Collapse';
-import { LoadingButton } from '@mui/lab';
+import Header from '@components/Header'
+import Footer from '@components/Footer'
+import { UpdateLabel } from '@components/UpdateLabel';
+import { DateSelector } from '@components/DateSelector';
 
-import axios from 'axios';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import { LoadingButton } from '@mui/lab';
 
 export default function GenerateReport() {
   const [startDate, setStartDate] = React.useState(null);
@@ -24,8 +24,7 @@ export default function GenerateReport() {
   const [isErrorOpen, setErrorOpen] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
   const [isCool, setIsCool] = React.useState(false);
-  const [isOpen, setIsOpen] = React.useState(true);
-  const [checkout, setCheckout] = React.useState({});
+  const router = useRouter();
 
   function resetScreen() {
     setErrorMessage('');
@@ -57,8 +56,15 @@ export default function GenerateReport() {
     console.log('about to call', url);
     axios.get(url)
       .then(results => {
-        setCheckout(JSON.stringify(results.data));
-        setIsOpen(false);
+        const checkout = new URLSearchParams({
+          ...results.data,
+          startDate: startDate.toISOString(),
+          endDate: endDate.toISOString(),
+          reportType: 'json',
+          stakeAddress,
+          isCool
+        }).toString();
+        router.push(`/checkout?${checkout}`);
       }).catch(ex => {
         const errorMessage = _.get(ex, 'response.data.message');
 
@@ -91,47 +97,43 @@ export default function GenerateReport() {
         <div className="mx-3 col-span-3 lg:col-span-2 px-2">
           <h1 className="title text-5xl mb-4">Generate Report</h1>
           <div className="content py-1">
-            <Collapse in={isOpen}>
-              <p>To generate a stake report, please fill out the form below.</p>
-              <ErrorLabel isOpen={isErrorOpen} onClose={resetScreen} message={errorMessage} />
-              <div className="input">
-                <input
-                  type="text"
-                  onChange={(event) => {
-                    resetScreen();
-                    setStakeAddress(event.target.value);
-                  }}
-                  placeholder="Stake Address"
-                  name="stakeAddress"
-                  className="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500"
-                  required=""/>
-              </div>
+            <p>To generate a stake report, please fill out the form below.</p>
+            <UpdateLabel isOpen={isErrorOpen} onClose={resetScreen} message={errorMessage} />
+            <div className="input">
+              <input
+                type="text"
+                onChange={(event) => {
+                  resetScreen();
+                  setStakeAddress(event.target.value);
+                }}
+                placeholder="Stake Address"
+                name="stakeAddress"
+                className="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500"
+                required=""/>
+            </div>
 
-              <DateSelector label={"Start Date"} value={startDate} onChange={resetScreen} setValue={setStartDate} />
-              <DateSelector label={"End Date"} value={endDate} onChange={resetScreen} setValue={setEndDate} />
+            <DateSelector label={"Start Date"} value={startDate} onChange={resetScreen} setValue={setStartDate} />
+            <DateSelector label={"End Date"} value={endDate} onChange={resetScreen} setValue={setEndDate} />
 
-              <div className="date-input">
-                <FormGroup>
-                  <FormControlLabel control={<Switch onChange={(event) => {
-                    resetScreen();
-                    setIsCool(event.target.checked)
-                  }}/>} label="I'm cool and stake with SolCapture (we'll check this)" />
-                </FormGroup>
-              </div>
-              <div className="date-input">
-                <LoadingButton
-                  onClick={onButtonClick}
-                  loading={loading}
-                  disabled={loading}
-                  variant="contained"
-                  className="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400"
-                >
-                  Generate Quote
-                </LoadingButton>
-              </div>
-
-            </Collapse>
-            <PayPage isOpen={!isOpen} checkout={checkout} />
+            <div className="date-input">
+              <FormGroup>
+                <FormControlLabel control={<Switch onChange={(event) => {
+                  resetScreen();
+                  setIsCool(event.target.checked)
+                }}/>} label="I'm cool and stake with SolCapture (we'll check this)" />
+              </FormGroup>
+            </div>
+            <div className="date-input">
+              <LoadingButton
+                onClick={onButtonClick}
+                loading={loading}
+                disabled={loading}
+                variant="contained"
+                className="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400"
+              >
+                Generate Quote
+              </LoadingButton>
+            </div>
           </div>
         </div>
       </div>
